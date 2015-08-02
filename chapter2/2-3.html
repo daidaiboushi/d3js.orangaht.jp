@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>棒グラフ</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<svg id="myGraph"></svg>
+<script>
+  var dataset = [300, 130, 5, 60, 240];
+  d3.select("#myGraph")
+    .selectAll("rect")
+      .data(dataset)
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", function (d, i) {
+        return i * 25;
+      })
+      .attr("width", function (d, i) {
+        return d + "px";
+      })
+      .attr("height", "20px");
+</script>
+</body>
+</html>

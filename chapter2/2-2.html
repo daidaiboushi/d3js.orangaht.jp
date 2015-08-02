@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>棒グラフ</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<svg id="myGraph"></svg>
+<script>
+  var dataset = [300, 130, 5, 60, 240];
+  d3.select("#myGraph")
+    .append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", dataset[0])
+      .attr("height", "20px");
+</script>
+</body>
+</html>

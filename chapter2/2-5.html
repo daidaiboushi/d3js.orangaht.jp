@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>棒グラフ</title>
+  <style>
+    svg {
+      width: 320px;
+      height: 240px;
+      border: 1px solid black;
+    }
+    #myGraph rect {
+      stroke: rgb(160, 0, 0);
+      stroke-width: 1px;
+      fill: rgb(255, 0, 0);
+    }
+  </style>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<button id="updateButton">データ更新</button>
+<svg id="myGraph"></svg>
+<script>
+  var dataset = [300, 130, 5, 60, 240];
+  d3.select("#myGraph")
+    .selectAll("rect")
+      .data(dataset)
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", function (d, i) {
+        return i * 25;
+      })
+      .attr("width", function (d, i) {
+        return d + "px";
+      })
+      .attr("height", "20px");
+  d3.select("#updateButton")
+      .on("click", function() {
+        dataset = [20, 230, 150, 10, 20];
+        d3.select("#myGraph")
+            .selectAll("rect")
+            .data(dataset)
+            .attr("width", function(d, i) {
+              return d + "px";
+            });
+      });
+</script>
+</body>
+</html>
